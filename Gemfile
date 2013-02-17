@@ -9,6 +9,7 @@ gem 'high_voltage', ">= 1.2.0"
 gem 'rdiscount'
 gem 'airbrake'
 gem 'jquery-rails'
+gem 'ember-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
