@@ -1,5 +1,11 @@
 - content_for(:title) { 'Welcome' }
-:markdown
-  # This is a home page
 
-  Content is written using Markdown, like Gruber intended.
+.row
+  - %w(To\ Do Design Development Testing Done).each do |state|
+    .swimlane
+      %h4 #{state}
+      %ul.cards
+        - rand(15).times do |i|
+          %li.card
+            %span.title Card #{i}
+            .tags #{state.downcase}

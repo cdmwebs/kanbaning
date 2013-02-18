@@ -8,7 +8,6 @@ gem 'haml-rails'
 gem 'high_voltage', ">= 1.2.0"
 gem 'rdiscount'
 gem 'airbrake'
-gem 'jquery-rails'
 gem 'ember-rails'
 
 group :assets do
@@ -17,6 +16,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails', '~> 1.0.3'
   gem 'zurb-foundation'
+  gem 'jquery-rails'
+  gem 'jquery-ui-rails'
 end
 
 group :development do

@@ -8,16 +8,11 @@
     = stylesheet_link_tag    "application"
     = csrf_meta_tags
   %body
-    #wrapper.container
-      %header.row
-        .columns.twelve
-          %h1 Header
-      #main.row
-        .columns.twelve
-          = render 'application/flashes'
-          = yield
-      %footer.row
-        .columns.twelve
-          %p &copy; #{Date.today.year} Gaslight Software LLC. All Rights Reserved.
+    %header.row
+      .columns.fifteen
+        %h1 Header
+    #main.row
+      .columns.fifteen
+        = yield
     = javascript_include_tag "application"
     = content_for(:javascript)

@@ -16,3 +16,59 @@ footer
     font-size: 80%
     color: #aaa
 
+#main
+  .swimlane
+    width: 20%
+    padding: 0 0 0 15px
+    float: left
+    &:last-child
+      padding-right: 15px
+  h4
+    padding-bottom: 5px
+    border-bottom: 1px solid #f6f6f6
+    margin-bottom: 0
+
+  ul.cards
+    background: #eee
+    min-height: 50px
+    padding: 5px
+
+    li:after
+      background: #18629D
+      display: block
+      position: absolute
+      height: 100%
+      width: 100%
+      top: 0px
+      left: 0px
+      content: ' '
+      border-radius: 6px
+      z-index: -1
+
+    li
+      -moz-transition: border-top-width 0.5s ease-in
+      -webkit-transition: border-top-width 0.5s ease-in
+      border-top: 0px solid rgba(0,0,0,0)
+
+    .card, .ui-state-highlight
+      @include border-radius(5px)
+      list-style: none
+      background-color: lighten(yellow, 45%)
+      min-height: 80px
+      margin: 0 0.15em 0.45em 0.15em
+      padding: 0.25em
+      position: relative
+      .title
+        color: #444
+      .tags
+        text-align: right
+        font-size: 40%
+        color: #999
+        position: absolute
+        bottom: 3px
+        right: 5px
+
+    .ui-state-highlight
+      background-image: none
+      background-color: lighten(yellow, 40%)
+
