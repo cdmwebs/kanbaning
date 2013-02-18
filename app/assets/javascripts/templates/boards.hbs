@@ -1,8 +1,9 @@
-<h3>Boards</h3>
-<ul class="boards">
+<dl class="boards sub-nav">
   {{#each board in controller}}
-    <li>{{#linkTo "board" board}}{{board.name}}{{/linkTo}}</li>
+    {{#view Kanbaning.NavView}}
+      {{#linkTo "board" board}}{{ board.name }}{{/linkTo}}
+    {{/view}}
   {{/each}}
-</ul>
+</dl>
 {{ outlet }}
 

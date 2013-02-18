@@ -10,6 +10,17 @@ Kanbaning.Router.map ->
   @resource 'boards', ->
     @resource 'board', path: ':board_id'
 
+Kanbaning.NavView = Ember.View.extend
+  tagName: 'dd'
+  classNameBindings: ['active']
+  didInsertElement: ->
+    @_super()
+    @get('parentView').on('click', => @notifyPropertyChange('active'))
+  active: (->
+    @get('childViews.firstObject.active')
+  ).property()
+
+
 Kanbaning.IndexRoute = Ember.Route.extend
   redirect: -> @transitionTo('boards')
 
@@ -18,17 +29,17 @@ Kanbaning.BoardsRoute = Ember.Route.extend
 
 Kanbaning.BoardRoute = Ember.Route.extend
   setupController: (controller, model) ->
-    @controllerFor('lanes').set('model', model.get('lanes'))
+    @controllerFor('lanes').set('lanes', model.get('lanes'))
 
 Kanbaning.LanesController = Ember.ArrayController.extend()
 
-Kanbaning.LaneView = Ember.View.extend
+Kanbaning.BoardView = Ember.View.extend
   didInsertElement: ->
-    console.log 'inserted card view'
-    $(".cards").sortable
+    @$(".cards").sortable(
       connectWith: '.cards'
       placeholder: 'ui-state-highlight'
       stop: (e, ui) ->
+        console.log 'moved'
         next = ui.item.next()
         next.css
           '-moz-transition': 'none'
@@ -38,6 +49,7 @@ Kanbaning.LaneView = Ember.View.extend
             '-moz-transition': 'border-top-width 0.5s ease-in',
             '-webkit-transition': 'border-top-width 0.5s ease-in',
             'transition': 'border-top-width 0.5s ease-in'
+    ).disableSelection()
 
 Kanbaning.Board = DS.Model.extend
   name: DS.attr('string')
@@ -66,6 +78,10 @@ Kanbaning.Board.FIXTURES = [
   {
     id: 3
     name: 'IPC'
+  }
+  {
+    id: 4
+    name: 'MegaStore'
   }
 ]
 
