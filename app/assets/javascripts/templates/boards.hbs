@@ -1,0 +1,8 @@
+<h3>Boards</h3>
+<ul class="boards">
+  {{#each board in controller}}
+    <li>{{#linkTo "board" board}}{{board.name}}{{/linkTo}}</li>
+  {{/each}}
+</ul>
+{{ outlet }}
+

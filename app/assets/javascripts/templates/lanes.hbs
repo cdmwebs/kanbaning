@@ -1,0 +1,16 @@
+{{#each lane in controller}}
+  <div class="swimlane">
+    <h4>{{ lane.name }}</h4>
+    <ul class='cards'>
+      {{#each card in lane.cards}}
+        <li class='card'>
+          <span class='title'>{{ card.name }}</span>
+          <div class='tags'>{{ card.tags }}</div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{else}}
+  <h4>No lanes defined.</h4>
+{{/each}}
+
